@@ -14,26 +14,16 @@ def OverlayImage(src, overlay, posx, posy, S, D):
 	h, w, depth = overlay.shape
 	hs,ws,ds = src.shape
 	for x in range(-w/2,w/2,1):
-
 		if x+posx < ws and x+posx>=0:
-
 			for y in range(-h/2,h/2,1):
-
 				if y+posy < hs and y+posy>=0:
-
 					source = cv2.cv.Get2D(src, y+posy, x+posx)
 					over = cv2.cv.Get2D(overlay, y+(h/2), x+(w/2))
 					merger = [0, 0, 0, 0]
-
 					for i in range(3):
 						merger[i] = (S[i]*source[i]+D[i]*over[i])
-
 						merged = tuple(merger)
-
 						cv2.cv.Set2D(src, y+posy, x+posx, merged)
-
-
-
 
 # Extracting the mask of the cloth
 cloth =cv2.imread('top.jpeg')
@@ -60,7 +50,6 @@ cc_y=int(M_c['m01']/M_c['m00'])
 #cv2.imshow('top',res_c)
 #cv2.waitKey(0)
 overlay = res_c
-
 
 
 # Capturing the human

@@ -1,4 +1,3 @@
-import PIL
 from PIL import Image
 from PIL import ImageChops # used for multiplying images
 import numpy as np
@@ -13,9 +12,9 @@ def black_onto(img1, img2,newx,newy,h):
     resized = Image.new("RGB", img1.size, "white")
 
     # define where to paste mask onto canvas
-    img1_w, img1_h = img1.size
-    img2_w, img2_h = img2.size
-    #box = (img1_w/2-img2_w/2, img1_h/2-img2_h/2, img1_w/2-img2_w/2+img2_w, img1_h/2-img2_h/2+img2_h)
+#    img1_w, img1_h = img1.size
+#    img2_w, img2_h = img2.size
+#    box = (img1_w/2-img2_w/2, img1_h/2-img2_h/2, img1_w/2-img2_w/2+img2_w, img1_h/2-img2_h/2+img2_h)
     box = (newx, newy,newx+3*h, newy+3*h)
     # multiply new mask onto image
     resized.paste(img2, box)
